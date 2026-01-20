@@ -49,5 +49,30 @@ Route::get('/students/{id}', function ($id) {
 })->name('students.show');
 
 
+Route::get('/students/{id}/edit', function ($id) {
+ 
+    $students = [
+        1 => [
+            'name' => 'Maia more de ali',
+            'email' => 'maia@example.com',
+            'course' => 'BSCS',
+            'year' => '3rd Year',
+            'year_val' => '3' 
+        ],
+        2 => [
+            'name' => 'Sean Baldovino',
+            'email' => 'sean@example.com',
+            'course' => 'BSIT',
+            'year' => '2nd Year',
+            'year_val' => '2'
+        ]
+    ];
 
+    if (!array_key_exists($id, $students)) {
+        abort(404);
+    }
 
+    $student = $students[$id];
+
+    return view('students.edit', compact('student'));
+})->name('students.edit');

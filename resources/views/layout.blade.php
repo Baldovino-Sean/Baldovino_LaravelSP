@@ -8,12 +8,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <style>
-        /* --- Custom Color Scheme: "Professional & Clean" --- */
+       
         :root {
-            --primary-color: #2c3e50; /* Dark Slate / Navy */
-            --secondary-color: #95a5a6; /* Concrete Gray */
-            --accent-color: #3498db; /* Bright Blue Highlight */
-            --bg-color: #f8f9fa; /* Light Gray Background */
+            --primary-color: #2c3e50; 
+            --secondary-color: #95a5a6; 
+            --accent-color: #3498db; 
+            --bg-color: #f8f9fa; 
         }
 
         body {
@@ -25,7 +25,7 @@
             flex-direction: column;
         }
 
-        /* Navbar Styling */
+     
         .navbar {
             background-color: var(--primary-color) !important;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -36,14 +36,14 @@
             letter-spacing: 0.5px;
         }
 
-        /* Active Link Indicator */
+       
         .nav-link.active {
             color: var(--accent-color) !important;
             font-weight: bold;
             border-bottom: 2px solid var(--accent-color);
         }
 
-        /* Card Improvements */
+    
         .card {
             border: none;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Soft, subtle shadow */
@@ -56,19 +56,19 @@
             padding-bottom: 15px;
         }
 
-        /* Button Overrides for consistency */
+        
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
         }
         .btn-primary:hover {
-            background-color: #1a252f; /* Slightly darker on hover */
+            background-color: #1a252f; 
             border-color: #1a252f;
         }
 
-        /* Footer */
+    
         footer {
-            margin-top: auto; /* Pushes footer to bottom */
+            margin-top: auto; 
             background-color: white;
             border-top: 1px solid #e9ecef;
         }

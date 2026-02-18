@@ -26,56 +26,43 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="ps-4">
-                        <div class="d-flex align-items-center">
-                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 35px; height: 35px; font-size: 0.8rem;">
-                                MM
-                            </div>
-                            <div>
-                                <div class="fw-bold">Maia more de ali</div>
-                                <div class="small text-muted">maia@example.com</div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>BSCS</td>
-                    <td><span class="badge bg-info text-dark bg-opacity-10 border border-info px-3">3rd Year</span></td>
-                    <td class="text-end pe-4">
-                        <x-action-button href="{{ route('students.show', 1) }}" type="view">
-                            View
-                        </x-action-button>
+    @forelse($students as $student)
+        <tr>
+            <td class="ps-4">
+                <div class="d-flex align-items-center">
+                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 35px; height: 35px; font-size: 0.8rem;">
+                        {{ substr($student->first_name, 0, 1) }}{{ substr($student->last_name, 0, 1) }}
+                    </div>
+                    <div>
+                        <div class="fw-bold">{{ $student->first_name }} {{ $student->last_name }}</div>
+                        <div class="small text-muted">{{ $student->email }}</div>
+                    </div>
+                </div>
+            </td>
+            <td>{{ $student->course }}</td>
+            <td>
+                <span class="badge bg-info text-dark bg-opacity-10 border border-info px-3">
+                    {{ $student->year }} Year
+                </span>
+            </td>
+            <td class="text-end pe-4">
+                <x-action-button href="{{ route('students.show', $student->id) }}" type="view">
+                    View
+                </x-action-button>
 
-                        <x-action-button href="{{ route('students.edit', 1) }}" type="edit">
-                            Edit
-                        </x-action-button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="ps-4">
-                        <div class="d-flex align-items-center">
-                            <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 35px; height: 35px; font-size: 0.8rem;">
-                                SB
-                            </div>
-                            <div>
-                                <div class="fw-bold">Sean Baldovino</div>
-                                <div class="small text-muted">sean@example.com</div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>BSIT</td>
-                    <td><span class="badge bg-warning text-dark bg-opacity-10 border border-warning px-3">2nd Year</span></td>
-                    <td class="text-end pe-4">
-                        <x-action-button href="{{ route('students.show', 2) }}" type="view">
-                            View
-                        </x-action-button>
-
-                        <x-action-button href="{{ route('students.edit', 2) }}" type="edit">
-                            Edit
-                        </x-action-button>
-                    </td>
-                </tr>
-            </tbody>
+                <x-action-button href="{{ route('students.edit', $student->id) }}" type="edit">
+                    Edit
+                </x-action-button>
+            </td>
+        </tr>
+    @empty
+        <tr>
+            <td colspan="4" class="text-center py-5 text-muted">
+                No students found. Click "+ Add New Student" to get started!
+            </td>
+        </tr>
+    @endforelse
+</tbody>
         </table>
     </div>
 </div>

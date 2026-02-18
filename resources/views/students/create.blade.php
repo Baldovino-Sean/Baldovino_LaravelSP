@@ -6,28 +6,16 @@
 <div class="d-flex justify-content-center mt-5">
     <div class="card p-4" style="width: 400px;">
         <h2 class="text-center mb-3">Add Student</h2>
-        <form>
-            <div class="mb-3">
-                <label class="form-label">Name:</label>
-                <input type="text" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Email:</label>
-                <input type="email" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Course:</label>
-                <input type="text" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Year Level:</label>
-                <input type="text" class="form-control">
-            </div>
-            <div class="d-flex justify-content-between">
-                <button type="submit" class="btn btn-primary">Add Student</button>
-                <a href="{{ route('students.index') }}" class="btn btn-secondary">Cancel</a>
-            </div>
-        </form>
+        <form action="{{ route('students.store') }}" method="POST">
+    @csrf
+    <input type="text" name="first_name" class="form-control" placeholder="First Name">
+    <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+    <input type="email" name="email" class="form-control" placeholder="Email">
+    <input type="text" name="course" class="form-control" placeholder="Course">
+    <input type="number" name="year" class="form-control" placeholder="Year Level">
+    
+    <button type="submit" class="btn btn-primary">Add Student</button>
+</form>
     </div>
 </div>
 @endsection
